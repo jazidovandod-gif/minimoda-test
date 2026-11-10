@@ -1,0 +1,1832 @@
+[
+  {
+    "id": "MM-001",
+    "titulo": "Registro: alta exitosa con datos válidos",
+    "suite": "Registro – Flujo general",
+    "prioridad": "alta",
+    "severidad": "crítica",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm001@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar contraseña",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar checkbox de términos",
+        "datos": "Acepto los términos y condiciones",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner verde «¡Registro exitoso! Bienvenido/a a MiniModa, Prueba QA. Te enviamos un email de bienvenida (ver Bandeja).» Sin errores de validación.",
+    "tipo": "positivo"
+  },
+  {
+    "id": "MM-002",
+    "titulo": "Registro: todos los campos vacíos",
+    "suite": "Registro – Flujo general",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Dejar todos los campos vacíos y País sin seleccionar; no marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Mensajes: «El nombre es obligatorio.», «El email es obligatorio.», «La contraseña es obligatoria.», «Confirmá tu contraseña.», «La edad es obligatoria.», «Seleccioná un país.», «Debés aceptar los términos.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-003",
+    "titulo": "Registro: email sin arroba",
+    "suite": "Registro – Email",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "usuarioejemplo.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "No se crea la cuenta. Banner «Revisá los campos marcados.» (si aplica) y mensaje de email inválido bajo el campo (mensaje exacto a confirmar).",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-004",
+    "titulo": "Registro: contraseña de 7 caracteres",
+    "suite": "Registro – Contraseña",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm004@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "1234567",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar contraseña",
+        "datos": "1234567",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Bajo contraseña: «La contraseña debe tener al menos 8 caracteres.» (helper: «Mínimo 8 caracteres.»). No se crea la cuenta.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-005",
+    "titulo": "Registro: contraseñas no coinciden",
+    "suite": "Registro – Contraseña",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm005@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar contraseña",
+        "datos": "Segura999",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Mensaje «Las contraseñas no coinciden.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-006",
+    "titulo": "Registro: edad 12 (límite inferior -1)",
+    "suite": "Registro – Edad",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm006@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "12",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Bajo edad: «La edad debe estar entre 13 y 120.» (helper: «Número entero entre 13 y 120.»). No se crea la cuenta.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-007",
+    "titulo": "Registro: edad 121 (límite superior +1)",
+    "suite": "Registro – Edad",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm007@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "121",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Bajo edad: «La edad debe estar entre 13 y 120.» No se crea la cuenta.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-008",
+    "titulo": "Registro: sin aceptar términos",
+    "suite": "Registro – País y términos",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm008@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar checkbox de términos sin marcar",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Mensaje «Debés aceptar los términos.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-009",
+    "titulo": "Registro: contraseña exactamente 8 caracteres (acepta)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm009@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "Abcdef12",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "Abcdef12",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Alta exitosa según regla documentada (mínimo 8). Banner «¡Registro exitoso! Bienvenido/a a MiniModa, Prueba QA. Te enviamos un email de bienvenida (ver Bandeja).»",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-010",
+    "titulo": "Registro: contraseña sin números (≥8)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm010@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "SoloLetras",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "SoloLetras",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Se acepta según la regla documentada («Mínimo 8 caracteres.»; no exige números). Verificar: alta exitosa o mensaje adicional si hubiera otra regla no documentada.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-011",
+    "titulo": "Registro: contraseña sin mayúsculas (≥8)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm011@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Se acepta según la regla documentada (mínimo 8; no exige mayúsculas). Verificar: alta exitosa.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-012",
+    "titulo": "Registro: contraseña con espacios (≥8)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm012@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "Segura 12",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "Segura 12",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Se acepta según la regla documentada (mínimo 8; no prohíbe espacios). Verificar: alta exitosa o rechazo si el sistema trimea/rechaza espacios.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-013",
+    "titulo": "Registro: contraseña muy larga (256 caracteres)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm013@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Se acepta según la regla documentada (solo mínimo 8; sin máximo documentado). Verificar: alta exitosa o límite máximo no documentado (mensaje exacto a confirmar).",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-014",
+    "titulo": "Registro: contraseña solo espacios (8 espacios)",
+    "suite": "Registro – Contraseña",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm014@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "        ",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Confirmar",
+        "datos": "        ",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Comportamiento a verificar: rechazo como vacía/obligatoria («La contraseña es obligatoria.») o aceptación por longitud ≥8. No inventar mensaje; documentar lo observado.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-015",
+    "titulo": "Registro: confirmación de contraseña vacía",
+    "suite": "Registro – Contraseña",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm015@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar Confirmar contraseña vacío",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» Mensaje «Confirmá tu contraseña.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-016",
+    "titulo": "Registro: edad 13 (límite inferior inclusive)",
+    "suite": "Registro – Edad",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm016@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "13",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Alta exitosa. Banner «¡Registro exitoso! Bienvenido/a a MiniModa, Prueba QA. Te enviamos un email de bienvenida (ver Bandeja).»",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-017",
+    "titulo": "Registro: edad 120 (límite superior inclusive)",
+    "suite": "Registro – Edad",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm017@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "120",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Alta exitosa. Banner «¡Registro exitoso! Bienvenido/a a MiniModa, Prueba QA. Te enviamos un email de bienvenida (ver Bandeja).»",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-018",
+    "titulo": "Registro: edad 0",
+    "suite": "Registro – Edad",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm018@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "0",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «La edad debe estar entre 13 y 120.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-019",
+    "titulo": "Registro: edad negativa",
+    "suite": "Registro – Edad",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm019@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "-5",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «La edad debe estar entre 13 y 120.» (o rechazo de no entero; mensaje exacto a confirmar si difiere). No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-020",
+    "titulo": "Registro: edad decimal 13.5",
+    "suite": "Registro – Edad",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm020@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "13.5",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Rechazo: la edad debe ser número entero entre 13 y 120 (helper). Mensaje exacto a confirmar (posible «La edad debe estar entre 13 y 120.» u otro). No se crea la cuenta.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-021",
+    "titulo": "Registro: edad no numérica «abc»",
+    "suite": "Registro – Edad",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm021@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Intentar Completar Edad",
+        "datos": "abc",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "No se acepta valor no numérico (campo bloquea o muestra error). Si llega a enviar: banner «Revisá los campos marcados.» y mensaje de edad inválida/obligatoria (mensaje exacto a confirmar). No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-022",
+    "titulo": "Registro: edad vacía",
+    "suite": "Registro – Edad",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm022@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar Edad vacía",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «La edad es obligatoria.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-023",
+    "titulo": "Registro: email vacío",
+    "suite": "Registro – Email",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar Email vacío",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «El email es obligatorio.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-024",
+    "titulo": "Registro: email ya registrado (no se puede repetir)",
+    "suite": "Registro – Email",
+    "prioridad": "alta",
+    "severidad": "crítica",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta). Haber registrado previamente el email qa.prueba+dup@example.com (o usar uno ya existente).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+dup@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "No se crea una segunda cuenta. Se muestra error de email duplicado/ya registrado (mensaje exacto a confirmar).",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-025",
+    "titulo": "Registro: email con espacios al inicio/fin",
+    "suite": "Registro – Email",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "  qa.prueba+mm025@example.com  ",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Verificar: el sistema trimea y acepta, o rechaza como inválido (mensaje exacto a confirmar). Documentar comportamiento real.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-026",
+    "titulo": "Registro: email sin dominio",
+    "suite": "Registro – Email",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "usuario@",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "No se crea la cuenta. Error de formato de email (mensaje exacto a confirmar).",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-027",
+    "titulo": "Registro: email con doble @",
+    "suite": "Registro – Email",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "usuario@@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "No se crea la cuenta. Error de formato de email (mensaje exacto a confirmar).",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-028",
+    "titulo": "Registro: email duplicado por mayúsculas/minúsculas",
+    "suite": "Registro – Email",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta). Haber registrado previamente qa.prueba+case@example.com.",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "QA.Prueba+Case@Example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Verificar si el email se trata case-insensitive: rechazo por duplicado (mensaje exacto a confirmar) o alta distinta. Documentar.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-029",
+    "titulo": "Registro: nombre vacío",
+    "suite": "Registro – Nombre",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Dejar Nombre vacío",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm029@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «El nombre es obligatorio.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-030",
+    "titulo": "Registro: nombre solo espacios",
+    "suite": "Registro – Nombre",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "     ",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm030@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Verificar rechazo como vacío («El nombre es obligatorio.») u otro mensaje (mensaje exacto a confirmar). No se debería crear cuenta con nombre en blanco.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-031",
+    "titulo": "Registro: nombre muy largo (255+ caracteres)",
+    "suite": "Registro – Nombre",
+    "prioridad": "baja",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm031@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Verificar: aceptación, truncado o error de longitud máxima (mensaje exacto a confirmar). Documentar límite real.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-032",
+    "titulo": "Registro: nombre con acentos, ñ y caracteres especiales",
+    "suite": "Registro – Nombre",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "María José Ñandú-Pérez",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm032@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Alta exitosa esperada (UTF-8). Banner «¡Registro exitoso! Bienvenido/a a MiniModa, María José Ñandú-Pérez. Te enviamos un email de bienvenida (ver Bandeja).» Verificar que el nombre se muestre intacto.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-033",
+    "titulo": "Registro: nombre con inyección HTML/script",
+    "suite": "Registro – Nombre",
+    "prioridad": "alta",
+    "severidad": "crítica",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "<script>alert(1)</script><b>XSS</b>",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm033@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Si se acepta el alta, el nombre debe mostrarse escapado (sin ejecutar script ni renderizar HTML). Verificar en banner y Bandeja. Rechazo también es válido (mensaje exacto a confirmar).",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-034",
+    "titulo": "Registro: país sin seleccionar",
+    "suite": "Registro – País y términos",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm034@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar País sin seleccionar",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «Seleccioná un país.» No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-035",
+    "titulo": "Registro: cada país válido del select (9 opciones)",
+    "suite": "Registro – País y términos",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta). Identificar las 9 opciones del select (incl. Bolivia); nombres exactos a confirmar en el formulario.",
+    "pasos": [
+      {
+        "accion": "Para cada una de las 9 opciones de País: completar datos válidos únicos (email distinto)",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar el país bajo prueba",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos y clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Para cada país: alta exitosa con banner «¡Registro exitoso! Bienvenido/a a MiniModa, <nombre>. Te enviamos un email de bienvenida (ver Bandeja).»",
+    "tipo": "positivo"
+  },
+  {
+    "id": "MM-036",
+    "titulo": "Registro: doble clic en «Crear cuenta»",
+    "suite": "Registro – Flujo general",
+    "prioridad": "media",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar todos los campos con datos válidos",
+        "datos": "email=qa.prueba+mm036@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Hacer doble clic rápido en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Se crea una sola cuenta (o se deshabilita el botón tras el primer clic). No debe haber doble alta ni error por duplicado del mismo intento. Verificar.",
+    "tipo": "borde"
+  },
+  {
+    "id": "MM-037",
+    "titulo": "Registro: corrección de error y reenvío exitoso",
+    "suite": "Registro – Flujo general",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Enviar con Edad=12 y resto válido",
+        "datos": "email=qa.prueba+mm037@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Observar error «La edad debe estar entre 13 y 120.»",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Corregir Edad a 25",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic de nuevo en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Tras corregir, desaparece el error y se muestra el banner de alta exitosa. No quedan mensajes de validación previos.",
+    "tipo": "positivo"
+  },
+  {
+    "id": "MM-038",
+    "titulo": "Registro: bandeja de bienvenida tras alta exitosa",
+    "suite": "Registro – Flujo general",
+    "prioridad": "media",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar alta válida",
+        "datos": "email=qa.prueba+mm038@example.com; nombre=Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta» y observar banner de éxito",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Abrir/consultar la Bandeja referida en el mensaje de éxito",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Tras el alta, el mensaje menciona «ver Bandeja». En Bandeja debe aparecer el email de bienvenida asociado al registro (contenido exacto a confirmar).",
+    "tipo": "positivo"
+  },
+  {
+    "id": "MM-039",
+    "titulo": "Registro: contraseña vacía con resto válido",
+    "suite": "Registro – Contraseña",
+    "prioridad": "alta",
+    "severidad": "mayor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "qa.prueba+mm039@example.com",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar Contraseña vacía",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Dejar Confirmar vacía o con valor",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Banner «Revisá los campos marcados.» «La contraseña es obligatoria.» (y posiblemente «Confirmá tu contraseña.»). No se crea la cuenta.",
+    "tipo": "negativo"
+  },
+  {
+    "id": "MM-040",
+    "titulo": "Registro: email sin TLD (usuario@dominio)",
+    "suite": "Registro – Email",
+    "prioridad": "baja",
+    "severidad": "menor",
+    "precondiciones": "Estar en https://minimoda-navy.vercel.app/registro con el formulario de registro visible (recargar si hace falta).",
+    "pasos": [
+      {
+        "accion": "Completar Nombre",
+        "datos": "Prueba QA",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Email",
+        "datos": "usuario@dominio",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Contraseña y Confirmar",
+        "datos": "Segura123",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Completar Edad",
+        "datos": "25",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Seleccionar País",
+        "datos": "Bolivia",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Marcar términos",
+        "datos": "",
+        "resultado_esperado": ""
+      },
+      {
+        "accion": "Clic en «Crear cuenta»",
+        "datos": "",
+        "resultado_esperado": ""
+      }
+    ],
+    "resultado_esperado_final": "Verificar si se acepta o se rechaza por formato (mensaje exacto a confirmar). Documentar regla real del formulario.",
+    "tipo": "borde"
+  }
+]
